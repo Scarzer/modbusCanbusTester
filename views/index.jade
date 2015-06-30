@@ -1,0 +1,30 @@
+extends layout
+
+block content
+    h1= title
+
+    p
+        div.inputgroup
+            input#modbusIp(placeholder="0.0.0.0")
+            button#startModbus(class="btn btn-default") Start Modbus
+    p
+        div.inputgroup
+            input#canbusDevice(class=form-control,placeholder="vcan0")
+            button#startCanbus(class="btn btn-default") Start Canbus
+
+    div#modbusContainer
+        div.col-md-6
+            h1 Modbus Registers
+            ul
+                each registers in data.registers
+                    l1= registers
+                    br
+
+        div.col-md-6
+            h1 Modbus Controls
+            ul
+                li
+                    button#increaseMaxCurrent(class="btn btn-default") Increase Max Current
+                li
+                    button#decreaseMaxCurrent(class="btn btn-default") Decrease Max Current
+
